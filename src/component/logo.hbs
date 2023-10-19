@@ -1,6 +1,8 @@
 <div class="logo">
     {{#if isL}}
     <span class="badge text-bg-primary">L</span>
+    {{else if brandName}}
+    <span class="logo_brand">{{brandName}}</span>
     {{else}}
     <span class="badge text-bg-primary">B</span>
     {{/if}}

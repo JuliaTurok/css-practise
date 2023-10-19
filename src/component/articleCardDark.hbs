@@ -1,0 +1,11 @@
+<div class="article">
+    <div class="article article_{{id}}">
+        <div class="article_image" style="background-image:url({{photo}})"></div>
+        <div class="article_name">{{name}}</div>
+        <div class="article_description">{{description}}</div>
+        <a href="{{url}}" type="button" class="button">Read all</a>
+        {{#if isNew}}
+        <div class="badge_new">new</div>
+        {{/if}}
+    </div>
+</div>
