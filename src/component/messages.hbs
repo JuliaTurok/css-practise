@@ -1,0 +1,17 @@
+{{#with data}}
+<div class="messages">
+    <h1 class="messages_title">{{title}}</h1>
+    {{#each list}}
+    <div class="msg">
+
+        <div class="blue_square"></div>
+        <div class="msg_content">
+            <strong class="msg_name">{{nickname}}</strong>
+
+            <p class="msg_text">{{description}}</p>
+        </div>
+    </div>
+    {{/each}}
+    <a href="#" class="messages_link">All messages</a>
+</div>
+{{/with}}
