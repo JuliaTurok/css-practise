@@ -1,4 +1,4 @@
-@layer component, variant, main, adaptive;
+@layer normalize, component, variant, main, adaptive;
 
 @font-face {
   font-family: 'HelveticaNeueBold';
@@ -21,16 +21,7 @@
     text-align: center;
     border: 1px solid transparent;
   }
-  .click {
-    transition: opacity var(--transition-1);
-  }
-  .click:hover {
-    opacity: var(--opacity-1);
-    cursor: pointer;
-  }
-  .click:active {
-    opacity: var(--opacity-2);
-  }
+
   .icon {
     display: block;
     background-repeat: no-repeat;
@@ -62,6 +53,11 @@
     width: 24px;
     background-image: url('/svg/arrow-right.svg');
   }
+  .icon_arrow_blue {
+    height: 14px;
+    width: 24px;
+    background-image: url('/svg/feature/arrow-blue.svg');
+  }
 }
 
 body {
@@ -78,7 +74,7 @@ body {
 
   --page-width-big: 1260px;
   --page-width-medium: 1000px;
-  --page-width-small: 700px;
+  --page-width-small: 600px;
   --spacing-1: 8px;
   --spacing-2: 12px;
   --spacing-3: 16px;
@@ -103,6 +99,7 @@ body {
   --transition-1: 0.7s;
 
   --line-height: 1.5em;
+  --line-height-2: 150%;
 }
 
 @layer main {
@@ -163,7 +160,7 @@ body {
   .brands {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     column-gap: var(--spacing-8);
     row-gap: var(--spacing-4);
     flex-wrap: wrap;
@@ -174,6 +171,9 @@ body {
     padding-bottom: 150px;
     display: grid;
     gap: var(--spacing-5);
+    background-image: url('/img/brands/features.png');
+    background-repeat: no-repeat;
+    background-position: top right;
   }
 
   .features_title {
@@ -196,14 +196,121 @@ body {
     justify-self: flex-end;
   }
 
-  .features_grid_4 {
+  .features_grid_4,
+  .features_grid_5 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: var(--spacing-3);
   }
-  .features_grid_4 > .feat_card:first-of-type {
+  .grid_3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: var(--spacing-5);
+  }
+  .grid_row {
     grid-row: 1/3;
+  }
+  .advantages_section {
+    margin-top: 136px;
+    display: grid;
+    gap: var(--spacing-5);
+    background-image: url('/img/brands/items.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+  .advantages_section > div:last-of-type {
+    margin-top: 50px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    justify-self: center;
+    margin: var(--spacing-8) 0 var(--spacing-8) 550px;
+  }
+  .qoute_box_bg {
+    background-image: url('/img/brands/deliveroo.png');
+    background-repeat: no-repeat;
+    background-position: center left;
+    width: 1020px;
+    height: 360px;
+    display: flex;
+    justify-content: end;
+    margin-top: 150px;
+  }
+  .qoute_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .qoute {
+    letter-spacing: -0.3px;
+    font-size: var(--size-4);
+    line-height: var(--line-height-2);
+    width: 388px;
+  }
+  .deliveroo_icon {
+    width: 148px;
+    height: 40px;
+  }
+  .q_author {
+    font-size: var(--size-2);
+  }
+  .slack_card {
+    background-color: var(--color-white);
+    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.2);
+    width: 285px;
+    display: grid;
+    grid-template-rows: 1fr 1fr min-content;
+  }
+  .slack_card > div {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--size-2);
+    justify-content: space-between;
+    padding: var(--spacing-1) var(--spacing-3)
+      var(--spacing-5) var(--spacing-3);
+  }
+  .more_info {
+    display: flex;
+    justify-content: space-between;
+    color: #1264a3;
+  }
+
+  .click {
+    transition-duration: var(--transition-1);
+    transition-property: opacity, width, height;
+  }
+  .click:hover {
+    opacity: var(--opacity-1);
+    cursor: pointer;
+  }
+
+  .slack_picture {
+    width: 285px;
+    height: 208px;
+  }
+  .slack_text {
+    font-size: var(--size-1);
+    letter-spacing: 0.1px;
+    line-height: 18.2px;
+    color: #454245;
+    margin-bottom: var(--spacing-2);
+  }
+  .slack_title {
+    font-size: var(--size-4);
+    line-height: var(--line-height-2);
+    margin-bottom: var(--spacing-6);
+  }
+  .text {
+    padding: var(--spacing-3);
+  }
+  .slack_section {
+    display: flex;
+    justify-content: center;
+    margin: 150px 0 80px 0;
   }
 }
 
@@ -222,8 +329,19 @@ body {
       top: 0;
       height: 300px;
     }
+    .qoute_box_bg {
+      width: 1000px;
+      height: 360px;
+    }
   }
   @media all and (width < 1000px) {
+    .hero {
+      justify-content: center;
+    }
+    .qoute_box_bg {
+      width: 900px;
+      height: 360px;
+    }
     .page_content {
       max-width: var(--page-width-small);
     }
@@ -234,6 +352,196 @@ body {
     }
     .hero_content {
       max-width: 100%;
+    }
+    .features_grid_4,
+    .features_grid_5 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .features_grid_4 > .feat_card:first-of-type {
+      grid-row: 1/3;
+    }
+    .features_section {
+      background: none;
+    }
+    .advantages_section {
+      background: none;
+    }
+    .grid_3 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .info {
+      margin: 0 auto;
+    }
+    .empty_card {
+      display: none;
+    }
+    .qoute_box_bg {
+      width: 870px;
+      height: 360px;
+    }
+    .qoute {
+      letter-spacing: -0.3px;
+      font-size: var(--size-3);
+      line-height: var(--line-height-2);
+      width: 288px;
+    }
+  }
+  @media all and (width < 900px) {
+    .features_section {
+      max-width: 39rem;
+    }
+    .features_grid_4 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .qoute_box_bg {
+      background-image: none;
+      justify-content: center;
+    }
+  }
+
+  @media all and (width < 750px) {
+    .page_section {
+      max-width: 47rem;
+    }
+    .features_section {
+      max-width: 32rem;
+    }
+    .qoute_box_bg {
+      text-align: center;
+    }
+    .deliveroo_icon {
+      align-self: center;
+    }
+
+    .advantages_section {
+      justify-items: center;
+    }
+    .features_grid_5 {
+      grid-template-columns: max-content;
+      gap: var(--spacing-1);
+    }
+    .features_grid_5 > .feat_card {
+      max-width: 285px;
+    }
+
+    .grid_3 {
+      grid-template-columns: 1fr;
+    }
+    .qoute {
+      letter-spacing: -0.3px;
+      font-size: var(--size-4);
+      line-height: var(--line-height-2);
+      width: 388px;
+    }
+  }
+  @media all and (width < 650px) {
+    .features_grid_4 {
+      grid-template-columns: 1fr;
+    }
+    .features_section {
+      max-width: 25.5rem;
+    }
+
+    .hero_buttons {
+      gap: var(--spacing-2);
+    }
+
+    .features_grid_4,
+    .features_title,
+    .features_description {
+      max-width: 15.5rem;
+      margin: 0 auto;
+    }
+    .advantages_section {
+      max-width: 25.5rem;
+      margin: 0 auto;
+      margin-top: 150px;
+    }
+    .features_grid_5 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .page_section,
+    .hero-section {
+      max-width: 99vw;
+    }
+    .hero_title {
+      font-size: var(--size-6);
+    }
+    .brands_image {
+      max-width: 5rem;
+    }
+  }
+  @media all and (width < 450px) {
+    .hero_label {
+      margin: 0 4vw;
+    }
+    .hero_title {
+      font-size: var(--size-2);
+      margin: 0 4vw;
+    }
+    .slack_title {
+      font-size: var(--size-2);
+    }
+    .slack_card,
+    .slack_picture {
+      max-width: 85vw;
+    }
+    .qoute,
+    .q_author,
+    .deliveroo_icon {
+      font-size: var(--size-2);
+      max-width: 75vw;
+    }
+
+    .hero_info {
+      font-size: var(--size-1);
+      margin: 0 4vw;
+    }
+
+    .hero_buttons {
+      gap: var(--spacing-1);
+      justify-items: center;
+    }
+    .button {
+      max-width: 25vw;
+      padding: var(--spacing-1);
+      text-align: center;
+      width: 100%;
+      font-size: var(--size-1);
+    }
+  }
+  @media all and (width < 350px) {
+    .button_primary {
+      padding-top: var(--spacing-2);
+    }
+    .button {
+      font-size: 10px;
+    }
+
+    .features_section {
+      max-width: 95vw;
+    }
+    .brands_image {
+      max-width: 25vw;
+    }
+    .feat_card {
+      font-size: 10px;
+    }
+    .features_title {
+      font-size: var(--size-3);
+      max-width: 55vw;
+    }
+    .features_description {
+      font-size: var(--size-1);
+      max-width: 55vw;
+    }
+    .more_info {
+      font-size: var(--size-1);
+    }
+    .slack_card,
+    .slack_picture {
+      max-width: 80vw;
     }
   }
 }
